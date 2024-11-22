@@ -157,4 +157,18 @@ import jwt from "jsonwebtoken";
       res.status(500).json({message: "Internal server error"});
    }
 
-}
+};
+
+
+
+export const getProfile = async(req, res) => {
+
+   try {
+      res.json(req.user);
+   } catch (error) {
+      console.log("error getting profile", error.message);
+      res.status(500).json({message: "Internal server error"});
+   }
+};
+
+
