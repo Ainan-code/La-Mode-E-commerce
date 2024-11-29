@@ -37,7 +37,7 @@ const CreateProductForm = () => {
 
     const handleSubmit = async(e) => {
         e.preventDefault();
-        try {
+       
        await createProduct(newProduct);
        
        setNewProduct({
@@ -47,13 +47,7 @@ const CreateProductForm = () => {
 		category: "",
 		image: "",
 	});
-        } catch (error) {
-            console.log("error creating product", error.message);
-        }
-       
-       
-
-    }
+       }
   return (
     <motion.div
     className='bg-gray-800 shadow-lg rounded-lg p-8 mb-8 max-w-xl mx-auto'

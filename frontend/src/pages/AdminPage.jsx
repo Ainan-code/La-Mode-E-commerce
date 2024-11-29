@@ -6,7 +6,8 @@
  import AnalyticsTab from '../components/AnalyticsTab';
  import CreateProductForm from '../components/CreateProductForm';
  import ProductsList from '../components/ProductsList';
- import { useState } from 'react';
+ import { useState, useEffect } from 'react';
+import { useProductStore } from '../stores/useProductStore';
 
 
 
@@ -20,8 +21,13 @@ const tabs = [
  
  const AdminPage = () => {
 
+const {fetchProducts}	= useProductStore();
+
     const[activeTab, setActiveTab] = useState("create");
 
+	useEffect(() => {
+		fetchProducts();
+	}, [fetchProducts]);
    return (
     
 		<div className='min-h-screen relative overflow-hidden'>
