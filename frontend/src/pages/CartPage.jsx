@@ -4,7 +4,11 @@ import { useCartStore } from '../stores/useCartStore';
 import{motion } from "framer-motion";
 import { ShoppingCart } from 'lucide-react';
 import {Link} from "react-router-dom";
-  
+import CartItem from '../components/CartItem';
+import PeopleAlsoBought from '../components/PeopleAlsoBought';
+import OrderSummary from '../components/OrderSummary';
+ import GiftCouponCard from '../components/GiftCouponCard';
+
   const CartPage = () => {
 
    const{cart}  = useCartStore();
@@ -23,7 +27,7 @@ import {Link} from "react-router-dom";
 						) : (
 							<div className='space-y-6'>
 								{cart.map((item) => (
-									<CartItem key={item._id} item={item} />
+									<CartItem key={item?._id} item={item} />
 								))}
 							</div>
 						)}
